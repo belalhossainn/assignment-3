@@ -5,14 +5,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Assignment 3</title>
-  <!-- Tailwind CDN -->
-  <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+
   <!-- Google Font CDN -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=ADLaM+Display&family=Sora:wght@100..800&display=swap"
     rel="stylesheet">
-  <!-- DaisyUI CDN -->
+  <!-- DaisyUI & Tailwind CDN -->
   <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.23/dist/full.min.css" rel="stylesheet" type="text/css" />
   <script src="https://cdn.tailwindcss.com"></script>
 
@@ -28,12 +27,33 @@
       font-family: "ADLaM Display", serif;
     }
 
-    .gradient {
-      bg-gradient-to-r from-[#F8CCFB] to-[#ACD2FD]
+    .button {
+      background-color: black;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+      font-size: 18px;
+      overflow: hidden;
+      position: relative;
     }
 
-    .gradient-2 {
-      bg-gradient-to-r from-[#FCEEC2] to-[#FDE9F1]
+    .button::after {
+      content: "Click Me!";
+      position: absolute;
+      left: -100%;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgb(223, 213, 156);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: left 0.3s ease-in-out;
+    }
+
+    .button:hover::after {
+      left: 0;
     }
   </style>
 
@@ -53,7 +73,7 @@
 </head>
 
 <body class="font-sora">
-  <header class="bg-[#FFF9F4]">
+  <header class="border lg:border-none bg-[#FFF9F4]">
     <div class="navbar md:container mx-auto">
       <div class="navbar-start">
         <div class="dropdown">
@@ -114,7 +134,7 @@
 
   <!-- main -->
   <main class="my-24">
-    <!-- Hero Section -->
+    <!-- Banner Section -->
     <section class="h-screen md:mx-auto bg-[url('./cat-big.png')] bg-center bg-no-repeat bg-contain md:my-14 relative">
 
       <div class="md:w-1/2 p-10 absolute -top-20">
@@ -122,12 +142,31 @@
         <p class="mb-5">Discover a world of treats, toys, and essentials handpicked for your furry friends. Shop now and
           make tails
           wag with joy!</p>
-        <button class="text-sm text-black bg-cat-primary py-1 px-5 rounded-md">Find a pet</button>
+        <button class="button text-sm text-black bg-cat-primary py-1 px-5 rounded-md">Find a pet</button>
+      </div>
+    </section>
+
+    <!-- Extra Section -->
+    <section class="container mx-auto mb-24">
+      <div class="hero bg-[#F9DF8A] rounded-xl">
+        <div class="hero-content flex-col lg:grid grid-cols-2">
+          <img src="./c1-assets/ai-generated-8620359_640.png" class="rounded-xl" />
+          <div>
+            <h1 class="text-5xl font-bold font-ADLaM">Understanding Cat Body Language!</h1>
+            <p class="py-6">
+              Decode your cat’s tail flicks, ear movements, and meows to understand what they’re trying to say. Keep
+              your cat entertained with these fun and easy DIY toy ideas!
+
+
+            </p>
+            <button class="text-sm text-black bg-cat-primary py-1 px-5 rounded-md">Find a pet</button>
+          </div>
+        </div>
       </div>
     </section>
 
     <!-- Category Section -->
-    <section class="md:container mx-auto">
+    <section class="md:container mx-auto mb-24">
       <!-- title -->
       <h1 class="text-2xl font-bold mb-10 font-ADLaM">Browse By Categories</h1>
 
@@ -141,7 +180,7 @@
               </div>
           </figure>
           <div class="card-body items-center text-center">
-            <h2 class="card-title">Dog</h2>
+            <h2 class="card-title font-ADLaM">Dog</h2>
             <p>3 Items</p>
           </div>
         </div>
@@ -155,7 +194,7 @@
               </div>
           </figure>
           <div class="card-body items-center text-center">
-            <h2 class="card-title">Fish</h2>
+            <h2 class="card-title font-ADLaM">Fish</h2>
             <p>3 Items</p>
           </div>
         </div>
@@ -169,7 +208,7 @@
               </div>
           </figure>
           <div class="card-body items-center text-center">
-            <h2 class="card-title">Cat</h2>
+            <h2 class="card-title font-ADLaM">Cat</h2>
             <p>3 Items</p>
 
           </div>
@@ -184,7 +223,7 @@
               </div>
           </figure>
           <div class="card-body items-center text-center">
-            <h2 class="card-title">Birds</h2>
+            <h2 class="card-title font-ADLaM">Birds</h2>
             <p>3 Items</p>
           </div>
         </div>
@@ -198,7 +237,7 @@
               </div>
           </figure>
           <div class="card-body items-center text-center">
-            <h2 class="card-title">Small pet</h2>
+            <h2 class="card-title font-ADLaM">Small pet</h2>
             <p>3 Items</p>
           </div>
         </div>
@@ -212,7 +251,7 @@
               </div>
           </figure>
           <div class="card-body items-center text-center">
-            <h2 class="card-title">Rabit</h2>
+            <h2 class="card-title font-ADLaM">Rabit</h2>
             <p>2 Items</p>
           </div>
         </div>
@@ -239,11 +278,12 @@
 
             <div>
               <button
-                class="bg-white text-black px-2 py-1 text-sm me-32 text-center rounded-lg shadow-md hover:bg-gray-200 mb-20">Shop
+                class="bg-white text-black px-2 py-1 text-xs me-32 text-center rounded-lg shadow-md hover:bg-gray-200 mb-20">Shop
                 Now</button>
             </div>
 
-            <img src="./c1-assets/cute-pet-small.png" alt="Dog Image" class="w-35 absolute md:top-20 right-0 md:-mt-5">
+            <img src="./c1-assets/cute-pet-small.png" alt="Dog Image"
+              class="h-40  absolute top-10 right-5 lg:top-20 lg:right-8 lg:mt-3">
           </div>
           <!-- Grid section -->
           <!-- 01 -->
@@ -376,36 +416,35 @@
       </div>
     </section>
 
-    <!-- Price Section -->
+    <!--Low Price Section -->
     <section class="my-24 md:container mx-auto">
-      <h1 class="text-2xl font-bold mb-10">Everyday low Price</h1>
-      <div class="gap-4 md:flex ">
+      <h1 class="text-2xl font-bold mb-10 font-ADLaM">Everyday low Price</h1>
+      <div class="gap-4 grid md:grid-cols-5">
         <!-- Dog section -->
-        <div class="gradient md:flex gap-5 justify-center items-center  rounded-lg shadow-lg">
+        <div
+          class="bg-gradient-to-r from-[#F8CCFB] to-[#ACD2FD] md:flex gap-5 md:justify-center items-center  rounded-lg shadow-lg lg:col-span-3">
           <div class="pt-5 md:space-y-5 ps-7">
-            <p class="hidden sm:block">Under Price</p>
-            <h2 class="text-xl mb-2 md:text-2xl font-bold">Pet Grooming Mitt</h2>
-            <p class="hidden sm:block text-white">(Easy Hair Removal)</p>
-            <p class="text-5xl text-white md:text-5xl font-bold lg:text-black">$7.99</p>
+            <p class="hidden sm:block font-semibold">Under Price</p>
+            <h2 class="text-xl mb-2 md:text-2xl font-bold font-ADLaM">Pet Grooming Mitt</h2>
+            <p class="hidden sm:block text-white font-ADLaM">(Easy Hair Removal)</p>
+            <p class="font-ADLaM text-5xl text-white md:text-5xl font-bold lg:text-black">$7.99</p>
           </div>
           <div>
-            <img src="./c1-assets/cute-dog-mid.png" alt="" class="mb-6">
+            <img src="./c1-assets/cute-dog-mid.png" alt="dog">
           </div>
         </div>
         <!-- cat section -->
-        <div class="gradient-2 py-6 px-5 rounded-lg flex flex-col text-left relative">
-
-          <p class="text-xl mb-2 md:text-2xl font-bold pe-60">T-Shirt for Dogs</p>
-          <p class="text-5xl font-bold text-yellow-500">$7.99</p>
-          <img src="./c1-assets/cute-pet-mid.png" alt="Dog Image" class="md:absolute top-25 -right-0 pe-2 h-auto">
+        <div class="bg-gradient-to-r from-[#FFF9F4] to-[#F9DF8A] py-6 px-5 rounded-lg text-left relative md:col-span-2">
+          <p class="font-ADLaM text-xl mb-2 md:text-3xl font-bold">T-Shirt for Dogs</p>
+          <p class="font-ADLaM text-5xl font-bold text-yellow-500">$7.99</p>
+          <img src="./c1-assets/cute-pet-mid.png" alt="Dog Image" class="md:absolute top-25 -right-0 pe-2">
         </div>
       </div>
     </section>
 
     <!-- News Section -->
-    <section class="md:container mx-auto p-10  relative">
-      <div
-        class="justify-center items-center md:flex gap-25 absolute bg-[#FFF9F4] -top-10 left-0 right-0 mx-auto rounded-xl">
+    <section class="md:container mx-auto p-10 relative">
+      <div class="md:flex gap-25 bg-[#FFF9F4] mx-auto rounded-xl absolute -top-10 left-0 right-0">
         <!-- img -->
         <div>
           <img src="./c1-assets/cute-pet-mid.png" alt="" class="mx-auto md:ms-5 pt-10 ps-10">
@@ -428,29 +467,37 @@
   </main>
 
   <!-- footer -->
-  <footer class="footer bg-[#ffdb268c] text-base-content p-20">
-    <nav class="mt-47">
-      <div class="flex items-center">
-        <img src="./c1-assets/logo-footer.png" alt="logo">
+  <footer class=" bg-[#ffdb2686] pb-10">
+    <div class="container mx-auto grid grid-cols-3 lg:pt-80">
+      <!-- logo -->
+      <div class="flex">
+        <img src="./c1-assets/logo-footer.png" alt="logo" class="">
+        <p class="text-lg ms-4 mt-8 font-bold">Browse<span class="text-cat-primary">4</span>Pets</p>
+      </div>
 
-        <h6 class="text-lg font-normal ms-2">Browse<span class="text-cat-primary">4</span>Pets</h6>
+      <!-- nav -->
+      <div>
+        <ul class="font-bold space-y-3">
+          <li>Find a pet</li>
+          <li>Breeds</li>
+          <li>Contact us</li>
+        </ul>
       </div>
-      <p class="max-w-65 text-sm">Discover a world of treats, toys, and essentials handpicked for your furry friends</p>
-    </nav>
-    <nav class="font-semibold space-y-5 mt-50">
-      <h6 class="">Find a pet</h6>
-      <a class="">Breeds</a>
-      <a class="">Contact us</a>
-    </nav>
-    <nav class="mt-67">
-      <h6 class="">Follow Us</h6>
-      <div class="grid grid-flow-col gap-4">
-        <i class="fa-brands fa-facebook"></i>
-        <i class="fa-brands fa-instagram"></i>
-        <i class="fa-brands fa-linkedin"></i>
-        <i class="fa-brands fa-youtube"></i>
+
+      <!-- Icon -->
+      <div class="font-semibold">
+        <p>Follow Us</p>
+        <div class="space-x-3">
+          <i class="fa-brands fa-facebook"></i>
+          <i class="fa-brands fa-instagram"></i>
+          <i class="fa-brands fa-linkedin"></i>
+          <i class="fa-brands fa-youtube"></i>
+        </div>
       </div>
-    </nav>
+    </div>
+    <div class="container mx-auto text-xs pt-2">
+      <p>Discover a world of treats, toys, and <br> essentials handpicked for your furry <br> friends</p>
+    </div>
   </footer>
 </body>
 
